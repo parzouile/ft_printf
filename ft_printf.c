@@ -17,16 +17,14 @@ size_t	ft_put_aux(const char *str, size_t i, va_list *res)
 	if (str[i + 1] == 'c')
 		return (ft_putchar((char) va_arg(*res, int)));
 	else if (str[i + 1] == 's')
-		return (ft_putstr((char *) va_arg(*res, const char *)));
+		return (ft_putstr(va_arg(*res, const char *)));
 	/*else if (str[i + 1] == 'p')
-		return (  );
-	else if (str[i + 1] == 'd')
-		return (  );
-	else if (str[i + 1] == 'i')
-		return (  );
+		return (  );*/
+	else if (str[i + 1] == 'd' || str[i + 1] == 'i')
+		return (ft_putnbr(va_arg(*res, int)));
 	else if (str[i + 1] == 'u')
-		return (  );
-	else if (str[i + 1] == 'x')
+		return (ft_putunbr(va_arg(*res, unsigned int)));
+	/*else if (str[i + 1] == 'x')
 		return (  );
 	else if (str[i + 1] == 'X')
 		return (  );
