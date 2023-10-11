@@ -4,7 +4,7 @@
 
 int main (void)
 {
-    ///printf ("\n%d" , ft_putnbr(-1234568));
-    printf ("%i" , "10");
+    printf ("\n%d" ,printf("gay  = %x", 12354));
+    ///printf ("\n%d" ,ft_printf("gay  = %x", 12354));
     return 0;
 }

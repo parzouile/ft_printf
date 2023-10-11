@@ -18,18 +18,16 @@ size_t	ft_put_aux(const char *str, size_t i, va_list *res)
 		return (ft_putchar((char) va_arg(*res, int)));
 	else if (str[i + 1] == 's')
 		return (ft_putstr(va_arg(*res, const char *)));
-	/*else if (str[i + 1] == 'p')
-		return (  );*/
+	///else if (str[i + 1] == 'p')
+		///return (  );
 	else if (str[i + 1] == 'd' || str[i + 1] == 'i')
 		return (ft_putnbr(va_arg(*res, int)));
 	else if (str[i + 1] == 'u')
-		return (ft_putunbr(va_arg(*res, unsigned int)));
-	/*else if (str[i + 1] == 'x')
-		return (  );
+		return (ft_putnbr(va_arg(*res, unsigned int)));
+	else if (str[i + 1] == 'x')
+		return (ft_hexa_min(va_arg(*res, unsigned int)));
 	else if (str[i + 1] == 'X')
-		return (  );
-	else if (str[i + 1] == '%')
-		return (  );*/
+		return (ft_hexa_cap(va_arg(*res, unsigned int)));
 	else
 		return (ft_putchar(str[i + 1]));
 	
@@ -51,22 +49,18 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			pb = ft_put_aux(str, i, &res);
+			n += ft_put_aux(str, i, &res);
 			i ++;
 		}
 		else
-			pb = ft_putchar(str[i]);
-		if (pb >= 0 )
-			n += pb;
-		///else
-			/// probleme
+			n += ft_putchar(str[i]);
 		i ++;
 	}
 	va_end(res);
 	return (n);
 }
 
-int main()
+/*int main()
 {
 	printf("\n%d",  ft_printf("je %s %c %s", "la ", 'b'));
-}
+}*/
