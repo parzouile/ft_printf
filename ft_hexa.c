@@ -31,3 +31,29 @@ size_t	ft_hexa_cap(unsigned int nb)
 	else
 		return (ft_hexa_cap(nb + '0'));
 }
+
+size_t	ft_hexa_min(unsigned int nb)
+{
+	if (nb >= 16)
+		return (ft_hexa_min(nb / 16) + ft_hexa_min(nb % 16));
+	if (nb >= 10)
+		return (ft_putchar((nb % 10) + 'a'));
+	else
+		return (ft_putchar(nb + '0'));
+}
+
+size_t	ft_hexa_long(unsigned long nb)
+{
+	if (nb >= 16)
+		return (ft_hexa_min(nb / 16) + ft_hexa_min(nb % 16));
+	if (nb >= 10)
+		return (ft_putchar((nb % 10) + 'a'));
+	else
+		return (ft_putchar(nb + '0'));
+}
+
+size_t	ft_puthexa(void *x)
+{
+	write(1, "0x", 2);
+	return (2 + ft_hexa_long((unsigned long) x));
+}
