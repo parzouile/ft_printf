@@ -23,7 +23,7 @@ size_t	ft_put_aux(const char *str, size_t i, va_list *res)
 	else if (str[i + 1] == 'd' || str[i + 1] == 'i')
 		return (ft_putnbr(va_arg(*res, int)));
 	else if (str[i + 1] == 'u')
-		return (ft_putnbr(va_arg(*res, double)));
+		return (ft_putnbrd(va_arg(*res, unsigned int)));
 	else if (str[i + 1] == 'x')
 		return (ft_hexa_min(va_arg(*res, unsigned int)));
 	else if (str[i + 1] == 'X')

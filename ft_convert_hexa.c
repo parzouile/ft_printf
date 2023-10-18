@@ -29,7 +29,7 @@ size_t	ft_hexa_cap(unsigned int nb)
 	if (nb >= 10)
 		return (ft_putchar((nb % 10) + 'A'));
 	else
-		return (ft_hexa_cap(nb + '0'));
+		return (ft_putchar(nb + '0'));
 }
 
 size_t	ft_hexa_long(unsigned long nb)
@@ -44,7 +44,7 @@ size_t	ft_hexa_long(unsigned long nb)
 
 size_t	ft_puthexa(void *x)
 {
-	uintptr_t	addr;
+	uintptr_t	addr; /// ATTENTION !!!  IMPOSSIBLE DE CAST DONC UTILISE uintptr_t
 
 	addr = (uintptr_t)x; 
 	write(1, "0x", 2);

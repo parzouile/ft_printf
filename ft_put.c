@@ -31,3 +31,11 @@ size_t	ft_putnbr(int nb)
 	else
 		return (ft_putchar(nb + '0'));
 }
+
+size_t	ft_putnbrd(unsigned int nb)
+{
+	if (nb / 10)
+		return (ft_putnbrd(nb / 10) + ft_putnbrd(nb % 10));
+	else
+		return (ft_putchar(nb + '0'));
+}
