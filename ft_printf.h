@@ -25,5 +25,6 @@ size_t	ft_strlen(const char *s);
 size_t	ft_putnbr(int nb);
 size_t	ft_hexa_min(unsigned int nb);
 size_t	ft_hexa_cap(unsigned int nb);
+size_t	ft_puthexa(void *x);
 
 #endif

@@ -36,7 +36,6 @@ int	ft_printf(const char *str, ...)
 {
 	size_t	i;
 	size_t	n;
-	size_t	pb;
 	va_list	res;
 
 	if (!str)
