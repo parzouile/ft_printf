@@ -19,6 +19,8 @@ size_t	ft_putchar(const char c)
 
 size_t	ft_putstr(const char *str)
 {
+	if (!str)
+		return (0);
 	return (write(1, str, ft_strlen(str)));
 }
 

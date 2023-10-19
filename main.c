@@ -8,8 +8,8 @@ int main (void)
     ///printf ("\n%d" ,ft_printf("gay  = %x", 12354));
     int b = 1;
     int *a = &b;
-    ft_printf("faux = %X\n", -429496729);
-    printf("vrai = %X", -429496729);
+    ft_printf("faux = %p ", "jean");
+    printf("\n");
+    printf("vrai = %p  ", "jean");
     return 0;
 }
-
