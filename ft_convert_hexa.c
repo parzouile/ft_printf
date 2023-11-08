@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:37:10 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/11/08 02:43:22 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/11/08 03:02:11 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ size_t	ft_hexa_cap(unsigned int nb)
 		return (ft_putchar(nb + '0'));
 }
 
-size_t	ft_hexa_long(unsigned long nb)
+size_t	ft_hexa_long(unsigned long int nb)
 {
 	if (nb >= 16)
 		return (ft_hexa_long(nb / 16) + ft_hexa_long(nb % 16));
@@ -44,11 +44,11 @@ size_t	ft_hexa_long(unsigned long nb)
 
 size_t	ft_puthexa(void *x)
 {
-	long	a;
+	unsigned long int	a;
 
 	if (!x)
 		return (ft_putstr("(nil)"));
-	a = (long)x;
+	a = (unsigned long int)x;
 	write(1, "0x", 2);
 	return (2 + ft_hexa_long(a));
 }
