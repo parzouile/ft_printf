@@ -1,30 +1,39 @@
-SRCS =  ft_convert_hexa.c  ft_printf.c   ft_put.c  ft_strlen.c 
-
-OBJS = ${SRCS:.c=.o}
-DEPS = ${SRCS:.c=.d}
-
-LIB = libftprintf.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/07 15:57:13 by aschmitt          #+#    #+#              #
+#    Updated: 2023/11/07 16:39:36 by aschmitt         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 CC = gcc
+FLAGS = -Wall -Wextra -Werror
 
-CFLAGS = -Wall -Werror -Wextra -I ./
+NAME = libftprintf.a
+SRCS =	ft_convert_hexa.c  ft_printf.c  ft_put.c  ft_strlen.c
+			
 
-.c.o:
-		${CC} ${CFLAGS} -MMD -c $< -o ${<:.c=.o}
+HEADER = includes/
+OBJS = ${SRCS:.c=.o}
 
-${LIB}:	${OBJS}
-		ar -rsc ${LIB} ${OBJS}
+all : ${NAME}
 
-all: 	${LIB}
+${NAME} : ${OBJS}
+	ar rc ${NAME} ${OBJS} 
 
-clean:	
-		rm -f ${OBJS} ${DEPS}
+%.o : %.c
+	${CC} ${FLAGS}  -I ${HEADER} -o $@ -c $<
 
-fclean:	clean;
-		rm -f ${LIB}
+clean :
+	rm -f ${OBJS}
 
-re:	fclean all
+fclean : clean
+	rm -f ${NAME}
 
--include ${DEPS}
+re : fclean all
 
-.PHONY: all clean fclean re 
+.PHONY : all clean fclean re

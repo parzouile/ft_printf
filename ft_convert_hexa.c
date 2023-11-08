@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 23:20:26 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/10/18 23:20:26 by aschmitt         ###   ########.fr       */
+/*   Created: 2023/11/07 16:37:10 by aschmitt          #+#    #+#             */
+/*   Updated: 2023/11/08 02:43:22 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ size_t	ft_hexa_long(unsigned long nb)
 
 size_t	ft_puthexa(void *x)
 {
-	uintptr_t	addr; /// ATTENTION !!!  IMPOSSIBLE DE CAST DONC UTILISE uintptr_t
+	long	a;
 
-	addr = (uintptr_t)x; 
+	if (!x)
+		return (ft_putstr("(nil)"));
+	a = (long)x;
 	write(1, "0x", 2);
-	return (2 + ft_hexa_long(addr));
+	return (2 + ft_hexa_long(a));
 }
