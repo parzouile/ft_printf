@@ -6,7 +6,7 @@
 #    By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 15:57:13 by aschmitt          #+#    #+#              #
-#    Updated: 2023/11/07 16:39:36 by aschmitt         ###   ########.fr        #
+#    Updated: 2023/11/08 02:56:51 by aschmitt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all : ${NAME}
 ${NAME} : ${OBJS}
 	ar rc ${NAME} ${OBJS} 
 
-%.o : %.c
+%.o : %.c ${HEADER} Makefile
 	${CC} ${FLAGS}  -I ${HEADER} -o $@ -c $<
 
 clean :
